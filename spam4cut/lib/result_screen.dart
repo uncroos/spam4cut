@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'dart:io';
 
@@ -20,15 +19,9 @@ class ResultScreen extends StatelessWidget {
           children: [
             Image.file(File(imagePath)),
             const SizedBox(height: 20),
-            QrImage(
-              data: "https://example.com",
-              version: QrVersions.auto,
-              size: 200.0,
-            ),
-            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Share.shareFiles([imagePath]);
+                Share.shareXFiles([XFile(imagePath)]);
               },
               child: const Text('Share Photo'),
             ),
