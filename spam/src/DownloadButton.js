@@ -7,8 +7,8 @@ const DownloadButton = () => {
     const frame = document.querySelector(".photo-frame");
     if (frame) {
       html2canvas(frame, {
-        width: 500, // Set the width of the captured canvas
-        height: 800, // Set the height of the captured canvas
+        width: frame.offsetWidth, // 실제 요소의 너비를 사용
+        height: frame.offsetHeight, // 실제 요소의 높이를 사용
       }).then((canvas) => {
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
@@ -21,7 +21,9 @@ const DownloadButton = () => {
   };
 
   const handleQRClick = () => {
-    alert("QR 버튼이 클릭되었습니다.");
+    console.log("QR 버튼이 클릭되었습니다.");
+    alert("QR 코드 생성 기능을 구현해야 합니다.");
+    // QR 코드 생성을 위한 추가 기능을 여기에서 구현할 수 있습니다.
   };
 
   return (
