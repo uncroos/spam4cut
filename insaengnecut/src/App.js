@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import WebcamCapture from "./WebcamCapture";
+import PhotoFrame from "./PhotoFrame";
+import QRCodeGenerator from "./QRCodeGenerator";
+import "./App.css";
 
 function App() {
+  const [photos, setPhotos] = useState([]);
+  const [isComplete, setIsComplete] = useState(false);
+
+  const addPhoto = (photo) => {
+    if (photos.length < 4) {
+      setPhotos((prevPhotos) => [...prevPhotos, photo]);
+    }
+    if (photos.length + 1 === 4) {
+      setIsComplete(true);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>인생네컷</h1>
+      {!isComplete ? (
+        <div className="webcam-container">
+          <WebcamCapture addPhoto={addPhoto} />
+          <p>{photos.length} / 4장</p>
+        </div>
+      ) : (
+        <div>
+          <PhotoFrame photos={photos} />
+          <QRCodeGenerator photos={photos} />
+          <button onClick={() => setPhotos([]) & setIsComplete(false)}>
+            다시 찍기
+          </button>
+        </div>
+      )}
     </div>
   );
 }
