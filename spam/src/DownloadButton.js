@@ -7,8 +7,9 @@ const DownloadButton = () => {
     const frame = document.querySelector(".photo-frame");
     if (frame) {
       html2canvas(frame, {
-        width: frame.offsetWidth, // 실제 요소의 너비를 사용
-        height: frame.offsetHeight, // 실제 요소의 높이를 사용
+        width: frame.offsetWidth, // Actual width of the element
+        height: frame.offsetHeight, // Actual height of the element
+        scale: 3, // Increase scale for better quality
       }).then((canvas) => {
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
