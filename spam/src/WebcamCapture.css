@@ -1,4 +1,3 @@
-/* WebcamCapture.css */
 .webcam-container {
   display: flex;
   flex-direction: column;
@@ -6,17 +5,19 @@
   justify-content: center; /* 수직 중앙 정렬 */
   width: 100vw; /* 전체 화면 너비 */
   height: 100vh; /* 전체 화면 높이 */
-  background-color: #f0f0f0; /* 배경색 (선택 사항) */
+  background-color: #f0f0f0; /* 배경색 */
   padding: 20px; /* 여백 추가 */
   box-sizing: border-box; /* 패딩을 포함한 전체 크기 계산 */
+  position: relative; /* 절대 위치 아이템을 위한 기준점 */
 }
 
 .webcam {
-  width: 100%; /* 전체 너비 */
-  max-width: 800px; /* 최대 너비 설정 */
-  height: auto; /* 비율 유지 */
+  width: 512px; /* 전체 너비 */
+  height: 612px; /* 비율 유지 */
   border: 2px solid #ddd; /* 선택 사항: 테두리 추가 */
   border-radius: 10px; /* 선택 사항: 모서리 둥글게 */
+  object-fit: cover; /* 비율을 유지하면서 컨테이너에 맞추기 */
+  aspect-ratio: 3/4; /* 원하는 비율로 설정 (예: 16:9) */
 }
 
 .webcam-container p {
@@ -31,6 +32,8 @@
   align-items: center;
   width: 80px; /* 아이콘 너비 */
   height: 80px; /* 아이콘 높이 */
+  position: absolute; /* 절대 위치 */
+  bottom: 30px; /* 하단에서부터의 거리 */
 }
 
 .camera-icon img {
