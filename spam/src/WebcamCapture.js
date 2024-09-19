@@ -26,6 +26,27 @@ const WebcamCapture = ({ addPhoto, photoCount }) => {
     [addPhoto]
   );
 
+  const cropImage = (imageSrc) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = imageSrc;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 235;
+        canvas.height = 364;
+        const ctx = canvas.getContext("2d");
+
+        // 이미지의 중심을 기준으로 잘라냄
+        const startX = (img.width - 235) / 2;
+        const startY = (img.height - 364) / 2;
+
+        ctx.drawImage(img, startX, startY, 235, 364, 0, 0, 235, 364);
+        const croppedImageSrc = canvas.toDataURL("image/jpeg");
+        resolve(croppedImageSrc);
+      };
+    });
+  };
+
   useEffect(() => {
     let timer;
     if (capturing && countdown > 0) {
@@ -35,8 +56,10 @@ const WebcamCapture = ({ addPhoto, photoCount }) => {
     } else if (countdown === 0 && capturing) {
       const imageSrc = webcamRef.current.getScreenshot();
       if (imageSrc) {
-        handleAddPhoto(imageSrc); // useCallback으로 감싼 함수 호출
-        playSound(); // 사진 찍을 때마다 사운드 재생
+        cropImage(imageSrc).then((croppedImage) => {
+          handleAddPhoto(croppedImage); // useCallback으로 감싼 함수 호출
+          playSound(); // 사진 찍을 때마다 사운드 재생
+        });
       }
       setCapturing(false);
     }
