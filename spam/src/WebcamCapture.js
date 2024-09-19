@@ -16,7 +16,7 @@ const WebcamCapture = ({ addPhoto, photoCount }) => {
   const capture = () => {
     if (photoCount >= 4) return; // 4장의 사진이 모두 찍힌 경우
     setCapturing(true);
-    setCountdown(4); // 4초 카운트다운 시작
+    setCountdown(0); // 4초 카운트다운 시작
   };
 
   const handleAddPhoto = useCallback(

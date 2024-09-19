@@ -52,10 +52,31 @@ const DownloadButton = () => {
         //   link.href = newCanvas.toDataURL("image/png");
         //   link.download = "insaengnecut.png";
         //   link.click();
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png");
-        link.download = "insaengnecut.png";
-        link.click();
+
+        const link = document.createElement("img");
+        link.id = "mainImg";
+        link.src = canvas.toDataURL("image/png");
+        var imagObject = new Image();
+        imagObject = link;
+        var originalImage =
+          '<img id="imageViewer" src="' +
+          imagObject.src +
+          '"height="' +
+          100 +
+          '%" width="' +
+          100 +
+          '%" />';
+
+        var popup = window.open(
+          "",
+          "popup",
+          "toolbar=no,menubar=no,width=200,height=150"
+        );
+        popup.document.open();
+        popup.document.write("<html><head></head><body onload='print()'>");
+        popup.document.write(originalImage);
+        popup.document.write("</body></html>");
+        popup.document.close();
         // };
       });
     } else {
