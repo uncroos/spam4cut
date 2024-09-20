@@ -1,7 +1,7 @@
 .photo-frame {
   width: 500px;
   height: 800px;
-  background-color: #3f3f3f; /* 프레임 색상 */
+  background-color: #fdfdfd; /* 프레임 색상 */
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2등분된 열 */
   grid-template-rows: repeat(2, 1fr); /* 2등분된 행 */
@@ -15,14 +15,16 @@
   object-fit: cover; /* 이미지가 전체 영역을 덮도록 설정 */
 }
 
-.spam-area {
+.footer-image {
   grid-column: span 2; /* 2열을 차지 */
   grid-row: span 1; /* 1행을 차지 */
-  background-color: #3f3f3f;
-  text-align: center;
-  font-size: 24px;
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2px; /* 상단과의 간격 조정 */
+}
+
+.footer-image img {
+  width: auto;
+  height: 50px; /* 적절한 높이로 조정 */
 }

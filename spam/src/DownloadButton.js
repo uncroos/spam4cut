@@ -91,7 +91,7 @@ const DownloadButton = () => {
   return (
     <div className="download-box">
       <button className="download-button" onClick={downloadImage}>
-        다운로드
+        출력
       </button>
       <button className="qr-button" onClick={handleQRClick}>
         QR

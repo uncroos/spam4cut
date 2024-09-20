@@ -12,7 +12,12 @@ const PhotoFrame = ({ photos }) => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       ))}
-      {photos.length > 0 && <div className="spam-area">SPAM</div>}
+      {/* a.png 이미지 추가 */}
+      {photos.length > 0 && (
+        <div className="footer-image">
+          <img src="./a.png" alt="footer" />
+        </div>
+      )}
     </div>
   );
 };

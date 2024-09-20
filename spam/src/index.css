@@ -5,6 +5,7 @@
 }
 
 body {
+  background-color: #3f3f3f;
   margin: 0;
   font-family: "CookieRun";
   -webkit-font-smoothing: antialiased;
