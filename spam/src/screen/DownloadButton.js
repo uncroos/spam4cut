@@ -7,10 +7,10 @@ const DownloadButton = () => {
     const frame = document.querySelector(".photo-frame");
 
     if (frame) {
-      const elementWidth = frame.offsetWidth;
-      const elementHeight = frame.offsetHeight;
+      const elementWidth = 377.95275591;
+      const elementHeight = 559.37;
       html2canvas(frame, {
-        scale: window.devicePixelRatio, // 디바이스 픽셀 밀도에 맞게 스케일 조정
+        scale: 4, // 디바이스 픽셀 밀도에 맞게 스케일 조정
         useCORS: true, // 외부 리소스 CORS 문제 방지
         backgroundColor: null, // 투명 배경 유지
         windowWidth: elementWidth, // 요소의 너비로 캡처 크기 설정
