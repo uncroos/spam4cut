@@ -104,6 +104,7 @@ const WebcamCapture = ({ addPhoto, photoCount }) => {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
         className="webcam"
+        style={{ transform: "-scaleX(-1)" }}
         videoConstraints={{
           width: 960,
           height: 1280,

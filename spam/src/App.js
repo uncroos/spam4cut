@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import StartScreen from "./screen/StartScreen";
-import ChooseScreen from "./screen/ChooseSrceeen"; // 프레임 선택 화면 추가
+import ChooseScreen from "/Users/an-yohan/Documents/GitHub/spam4cut/spam/src/screen/ChooseScreeen.js"; // 프레임 선택 화면 추가
 import WebcamCapture from "./screen/WebcamCapture"; // 예시 프레임 카메라 컴포넌트
 import PhotoFrame from "./screen/PhotoFrame";
 import DownloadButton from "./screen/DownloadButton";

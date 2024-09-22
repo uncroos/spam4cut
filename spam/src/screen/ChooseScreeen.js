@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./ChooseSrceeen.css";
+import "./ChooseScreen.css";
 
 const ChooseScreen = ({ selectFrame }) => {
-  const [selectedFrame, setSelectedFrame] = useState("final_frame"); // 초기 선택된 프레임 설정
+  const [selectedFrame, setSelectedFrame] = useState(null);
 
   const handleFrameSelect = (frame) => {
     setSelectedFrame(frame);
@@ -12,7 +12,7 @@ const ChooseScreen = ({ selectFrame }) => {
     if (selectedFrame) {
       selectFrame(selectedFrame); // 선택된 프레임을 부모 컴포넌트에 전달
     } else {
-      alert("프 레임을 선택해주세요.");
+      alert("프레임을 선택해주세요.");
     }
   };
 
@@ -22,11 +22,11 @@ const ChooseScreen = ({ selectFrame }) => {
       <div className="frame-container">
         <div
           className={`frame-option ${
-            selectedFrame === "final_frame" ? "selected" : ""
+            selectedFrame === "spam_frame" ? "selected" : ""
           }`}
-          onClick={() => handleFrameSelect("final_frame")}
+          onClick={() => handleFrameSelect("spam_frame")}
         >
-          <div className="frame-image final-frame"></div>
+          <div className="frame-image spam-frame"></div>
         </div>
         <div
           className={`frame-option ${
@@ -43,15 +43,14 @@ const ChooseScreen = ({ selectFrame }) => {
           onClick={() => handleFrameSelect("cheese_frame")}
         >
           <div className="frame-image cheese-frame"></div>
-        </div>{" "}
+        </div>
         <div
           className={`frame-option ${
-            selectedFrame === "yaohan_frame" ? "selected" : ""
+            selectedFrame === "yohan_frame" ? "selected" : ""
           }`}
-          onClick={() => handleFrameSelect("yaohan_frame")} // yaohan_frame 오타 수정
+          onClick={() => handleFrameSelect("yohan_frame")}
         >
-          <div className="frame-image yaohan-frame"></div>{" "}
-          {/* CSS 클래스 이름 일치 확인 */}
+          <div className="frame-image yaohan-frame"></div>
         </div>
       </div>
       <button className="next-button" onClick={handleNext}>

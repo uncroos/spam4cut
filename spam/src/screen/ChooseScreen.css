@@ -48,8 +48,8 @@ h1 {
 }
 
 /* 각 프레임의 미리보기 이미지 설정 */
-.frame-image.final-frame {
-  background-image: url("/public/yohan_frame.png");
+.frame-image.spam-frame {
+  background-image: url("/public/spam_frame.png");
 }
 
 .frame-image.mabear-frame {
@@ -61,7 +61,7 @@ h1 {
 }
 
 .frame-image.yaohan-frame {
-  background-image: url("/public/spam_frame.png"); /* 경로와 파일명 확인 */
+  background-image: url("/public/yohan_frame.png"); /* 경로와 파일명 확인 */
 }
 
 .next-button {
