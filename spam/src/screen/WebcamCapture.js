@@ -10,12 +10,12 @@ const WebcamCapture = ({ addPhoto, photoCount }) => {
   const [isProcessing, setIsProcessing] = useState(false); // 현재 처리 중인지 여부를 나타내는 상태 추가
 
   const deviceId =
-    "7782baa2ef9fe736b816e8ecfcec158bd9057841d9a2f433e4006ed03f3570e8";
+    "6c81289c60d5073d82a1cf139a39347f215acfc30f3b3f3f36a90a98c92a71f8"; // 웹캠 id
 
   const playSound = () => {
     const audio = new Audio("./mp3.mp3");
     audio.play();
-  };
+  };ㅁ
 
   const capture = () => {
     if (photoCount >= 4 || capturing) return; // 4장 이상이거나 촬영 중일 때는 시작하지 않음

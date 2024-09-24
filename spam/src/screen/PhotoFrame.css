@@ -1,40 +1,23 @@
 .photo-frame {
   position: relative;
-  width: 1200px;
-  height: 1800px;
-  background-image: url("/public/mabear_frame.png"); /* 프레임 이미지 배경으로 설정 */
-  background-size: cover;
+  width: 1200px; /* 프레임 이미지 크기에 맞춤 */
+  height: 1800px; /* 프레임 이미지 크기에 맞춤 */
+  overflow: hidden;
 }
 
 .photo-frame img {
   position: absolute;
-  object-fit: cover;
+  z-index: 1; /* 사진이 프레임 아래에 위치 */
+  object-fit: cover; /* 프레임에 맞게 사진 조정 */
 }
 
-.photo1 {
-  width: 512px;
-  height: 612px;
-  top: 406px;
-  left: 63px;
-}
-
-.photo2 {
-  width: 512px;
-  height: 612px;
-  top: 137px;
-  left: 626px;
-}
-
-.photo3 {
-  width: 512px;
-  height: 612px;
-  top: 1050px;
-  left: 63px;
-}
-
-.photo4 {
-  width: 512px;
-  height: 612px;
-  top: 781px;
-  left: 626px;
+.frame-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* 프레임이 사진 위에 위치 */
+  background-size: cover;
+  pointer-events: none; /* 프레임이 클릭을 방해하지 않도록 설정 */
 }

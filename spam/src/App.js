@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import StartScreen from "./screen/StartScreen";
-import ChooseScreen from "/Users/an-yohan/Documents/GitHub/spam4cut/spam/src/screen/ChooseScreeen.js"; // 프레임 선택 화면 추가
-import WebcamCapture from "./screen/WebcamCapture"; // 예시 프레임 카메라 컴포넌트
+import ChooseScreen from "./screen/ChooseScreeen"; // 상대 경로로 수정
+import WebcamCapture from "./screen/WebcamCapture";
 import PhotoFrame from "./screen/PhotoFrame";
+import Idolwebcam from "./screen/idol/Idolwebcam";
+//import IdolPhotoFrame from "./screen/idol/IdolPhotoFrame";
 import DownloadButton from "./screen/DownloadButton";
-
 import "./App.css";
 
 function App() {
   const [photos, setPhotos] = useState([]);
   const [isCapturing, setIsCapturing] = useState(false);
   const [showStartScreen, setShowStartScreen] = useState(true);
-  const [selectedFrame, setSelectedFrame] = useState(null); // 선택된 프레임 상태 추가
+  const [selectedFrame, setSelectedFrame] = useState(null);
 
   const addPhoto = (photo) => {
     if (photos.length < 4) {
@@ -27,26 +29,33 @@ function App() {
   };
 
   const handleFrameSelect = (frame) => {
-    setSelectedFrame(frame); // 선택한 프레임 설정
-    setIsCapturing(true); // 사진 촬영 시작
+    setSelectedFrame(frame);
+    setIsCapturing(true);
   };
 
   return (
-    <div className="App">
-      {showStartScreen ? (
-        <StartScreen onStart={handleStart} />
-      ) : !selectedFrame ? ( // 프레임 선택 전 화면 표시
-        <ChooseScreen selectFrame={handleFrameSelect} />
-      ) : isCapturing ? (
-        <WebcamCapture addPhoto={addPhoto} photoCount={photos.length} />
-      ) : (
-        <div>
-          <PhotoFrame photos={photos} frameType={selectedFrame} />{" "}
-          {/* 선택된 프레임에 따라 PhotoFrame 렌더링 */}
-          <DownloadButton />
-        </div>
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            showStartScreen ? (
+              <StartScreen onStart={handleStart} />
+            ) : !selectedFrame ? (
+              <ChooseScreen selectFrame={handleFrameSelect} />
+            ) : isCapturing ? (
+              <WebcamCapture addPhoto={addPhoto} photoCount={photos.length} />
+            ) : (
+              <div>
+                <PhotoFrame photos={photos} frameType={selectedFrame} />
+                <DownloadButton />
+              </div>
+            )
+          }
+        />
+        <Route path="/idol-webcam" element={<Idolwebcam />} />
+      </Routes>
+    </Router>
   );
 }
 

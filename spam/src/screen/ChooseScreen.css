@@ -63,6 +63,9 @@ h1 {
 .frame-image.yaohan-frame {
   background-image: url("/public/yohan_frame.png"); /* 경로와 파일명 확인 */
 }
+.frame-image.park-frame {
+  background-image: url("/public/park_frame.png"); /* 경로와 파일명 확인 */
+}
 
 .next-button {
   padding: 30px 150px; /* 버튼의 상하, 좌우 패딩을 크게 조정 */
