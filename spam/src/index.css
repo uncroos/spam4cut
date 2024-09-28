@@ -1,7 +1,7 @@
 @font-face {
   font-family: "CookieRun";
   font-weight: normal;
-  src: url("./fonts/CookieRun.ttf") format("truetype");
+  src: url("./fonts/CookieRun.ttf") format("truetype"); /*쿠키런 폰트 설치*/
 }
 
 body {

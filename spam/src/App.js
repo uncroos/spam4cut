@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import StartScreen from "./screen/StartScreen";
-import ChooseScreen from "./screen/ChooseScreeen"; // 상대 경로로 수정
+import ChooseScreen from "./screen/ChooseScreeen";
 import WebcamCapture from "./screen/WebcamCapture";
 import PhotoFrame from "./screen/PhotoFrame";
 import Idolwebcam from "./screen/idol/Idolwebcam";
-//import IdolPhotoFrame from "./screen/idol/IdolPhotoFrame";
 import DownloadButton from "./screen/DownloadButton";
 import "./App.css";
 
