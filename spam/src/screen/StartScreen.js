@@ -1,5 +1,5 @@
 import React from "react";
-import "./StartScreen.css";
+import "./StartScreen.css"; // Importing CSS for styles
 
 const StartScreen = ({ onStart }) => {
   return (

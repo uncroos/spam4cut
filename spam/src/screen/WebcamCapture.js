@@ -15,7 +15,7 @@ const WebcamCapture = ({ addPhoto, photoCount }) => {
   const playSound = () => {
     const audio = new Audio("./mp3.mp3");
     audio.play();
-  };ㅁ
+  };
 
   const capture = () => {
     if (photoCount >= 4 || capturing) return; // 4장 이상이거나 촬영 중일 때는 시작하지 않음
